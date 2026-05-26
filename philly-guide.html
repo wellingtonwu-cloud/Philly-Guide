@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philadelphia — Your July 4th Weekend Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf8f4;
+  --navy: #1a2340;
+  --gold: #c8933a;
+  --gold-light: #f0d898;
+  --red: #b83a2a;
+  --red-light: #f9eeec;
+  --green: #2a5c3f;
+  --green-light: #eaf3ee;
+  --blue: #1a4a7a;
+  --blue-light: #e8f0f9;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --border: rgba(26,35,64,0.12);
+  --card-bg: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ---- HEADER ---- */
+.header {
+  background: var(--navy);
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(200,147,58,0.04) 40px,
+    rgba(200,147,58,0.04) 41px
+  );
+}
+.header-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+.header-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 6vw, 42px);
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.header-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 20px;
+}
+.header-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hpill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.75);
+}
+
+/* ---- MAIN ---- */
+.main { max-width: 740px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+
+/* ---- JULY 4 BANNER ---- */
+.j4-banner {
+  background: linear-gradient(135deg, #1a2340 0%, #2a3a60 100%);
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--gold);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.j4-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.j4-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.j4-banner p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.65;
+}
+
+/* ---- TABS ---- */
+.sec-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.tab {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .18s;
+}
+.tab:hover { border-color: var(--navy); color: var(--navy); }
+.tab.on { background: var(--navy); border-color: var(--navy); color: #fff; }
+
+/* ---- DETAIL PANEL ---- */
+.detail {
+  display: none;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.25rem;
+  animation: slideIn .2s ease;
+}
+@keyframes slideIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.detail.show { display: block; }
+.detail-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+.detail-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.close-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px 10px;
+  cursor: pointer;
+  color: var(--muted);
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+.close-btn:hover { background: #f0f0f0; }
+.detail-meta { font-size: 12px; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; }
+.detail-desc { font-size: 14px; line-height: 1.75; color: var(--text); margin-bottom: 1rem; }
+.tips-block {
+  background: var(--cream);
+  border-radius: 10px;
+  padding: .9rem 1.1rem;
+  margin-bottom: 1rem;
+}
+.tips-label {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.tips-block ul {
+  padding-left: 16px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--text);
+}
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--blue);
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  transition: all .15s;
+}
+.map-link:hover { background: var(--blue); color: #fff; }
+
+/* ---- CARD GRID ---- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: .9rem 1.1rem;
+  cursor: pointer;
+  transition: all .18s;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.card:hover { border-color: var(--navy); box-shadow: 0 2px 12px rgba(26,35,64,0.08); transform: translateY(-1px); }
+.card.on { border: 1.5px solid var(--navy); box-shadow: 0 2px 12px rgba(26,35,64,0.1); }
+
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.card-name { font-size: 13px; font-weight: 500; color: var(--navy); line-height: 1.4; }
+.badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.b-free { background: var(--green-light); color: var(--green); }
+.b-paid { background: #f0f0ee; color: var(--muted); }
+.b-j4   { background: #fdecea; color: var(--red); }
+.card-meta { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+/* ---- ANCHORS ---- */
+.anchor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+@media (max-width: 480px) { .anchor-grid { grid-template-columns: 1fr; } }
+
+.anchor-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .75rem 1rem;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.adot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+.d-hotel { background: var(--blue); }
+.d-work  { background: var(--green); }
+.d-place { background: var(--red); }
+.aname { font-size: 12px; font-weight: 500; color: var(--navy); }
+.adist { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.transport-note {
+  background: var(--blue-light);
+  border-radius: 10px;
+  padding: .8rem 1rem;
+  font-size: 12px;
+  color: var(--blue);
+  line-height: 1.6;
+  margin-top: .5rem;
+}
+
+/* ---- DIVIDER ---- */
+.divider { height: 1px; background: var(--border); margin: 2rem 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-eyebrow">A personal guide prepared for you</div>
+    <h1>Philadelphia<br>July 4th Weekend</h1>
+    <p class="header-sub">Welcome to the birthplace of America. Coming from the UK for July 4th puts you in the right city at exactly the right moment.</p>
+    <div class="header-pills">
+      <span class="hpill">July 3–8, 2025</span>
+      <span class="hpill">Hyatt Centric Rittenhouse Square</span>
+      <span class="hpill">Workshop: 123 S Broad St (Mon–Wed)</span>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="j4-banner">
+    <div class="j4-icon">🎆</div>
+    <div>
+      <h2>July 4th in Philadelphia is something else</h2>
+      <p>This is the city where the Declaration of Independence was signed. The city takes it seriously — 16 days of free events, a massive parade through Old City on the 4th, concerts on the Parkway, and one of the largest fireworks displays in the country. Tap the <strong style="color:#fff">July 4th events</strong> tab below to see everything happening and the best spots to watch fireworks.</p>
+    </div>
+  </div>
+
+  <div class="sec-label">Browse by category</div>
+  <div class="tabs">
+    <button class="tab on" onclick="go('all',this)">All</button>
+    <button class="tab" onclick="go('j4',this)">🎆 July 4th events</button>
+    <button class="tab" onclick="go('hist',this)">History</button>
+    <button class="tab" onclick="go('art',this)">Art &amp; culture</button>
+    <button class="tab" onclick="go('food',this)">Food</button>
+    <button class="tab" onclick="go('sweet',this)">Sweets &amp; candy</button>
+    <button class="tab" onclick="go('boat',this)">Boat ride</button>
+  </div>
+
+  <div id="dp" class="detail"></div>
+  <div id="cg" class="grid"></div>
+
+  <div class="divider"></div>
+
+  <div class="sec-label" style="margin-bottom:12px">Your anchor points</div>
+  <div class="anchor-grid">
+    <div class="anchor-card"><span class="adot d-hotel"></span><div><div class="aname">Hyatt Centric Rittenhouse</div><div class="adist">1620 Chancellor St — your hotel</div></div></div>
+    <div class="anchor-card"><span class="adot d-work"></span><div><div class="aname">Workshop venue</div><div class="adist">123 S Broad St — ~0.7 mi south of hotel</div></div></div>
+    <div class="anchor-card"><span class="adot d-place"></span><div><div class="aname">Old City &amp; Independence Mall</div><div class="adist">~1.5 mi east — walk or rideshare</div></div></div>
+    <div class="anchor-card"><span class="adot d-place"></span><div><div class="aname">Benjamin Franklin Parkway</div><div class="adist">~1 mi northwest — fireworks here July 4</div></div></div>
+    <div class="anchor-card"><span class="adot d-place"></span><div><div class="aname">Penn's Landing / Waterfront</div><div class="adist">~2 mi east — boat ride &amp; river views</div></div></div>
+    <div class="anchor-card"><span class="adot d-place"></span><div><div class="aname">Eastern State Penitentiary</div><div class="adist">~1.5 mi north — short rideshare</div></div></div>
+  </div>
+  <div class="transport-note">
+    🚗 Getting around: Rideshare (Uber/Lyft) works well for most trips. Old City and Rittenhouse Square are easily walkable from the hotel. On July 4th, roads around Old City and the Parkway close from early morning — plan ahead and expect larger crowds than usual.
+  </div>
+
+</div>
+
+<script>
+const P = [
+  {
+    id:'parade', cat:'j4', name:'Salute to Independence Parade', badge:'b-j4', bl:'July 4 — Free',
+    meta:'July 4 · 11am–12:30pm · Old City to City Hall',
+    desc:'The largest Independence Day parade in the country. The route starts at 5th and Chestnut Streets — right in front of Independence Hall — heads up 6th Street, along Market Street past City Hall, and ends at Broad and Arch Streets. Floats, drum corps, marching bands, stilt performers, and a debut float previewing America\'s 250th birthday celebrations in 2026.',
+    tips:['Stake out a spot on Market Street or at 5th & Chestnut by 10am','Standing near Independence Hall gives you the most iconic backdrop','Road closures across Old City begin at 10:30am — plan your morning accordingly','Free to watch from anywhere along the route — no tickets required'],
+    hours:'11am – 12:30pm · July 4 only',
+    dist:'~1.5 mi from hotel (Old City)',
+    gm:'https://www.google.com/maps/search/?api=1&query=5th+and+Chestnut+Philadelphia'
+  },
+  {
+    id:'fireworks', cat:'j4', name:'Wawa Welcome America Fireworks', badge:'b-j4', bl:'July 4 — Free',
+    meta:'July 4 · Gates 4pm · Concert 7pm · Fireworks ~9:30pm',
+    desc:'Philadelphia\'s signature July 4th event — one of the largest fireworks displays in the United States, fired over the Philadelphia Museum of Art along the Benjamin Franklin Parkway. Completely free. The evening starts with a block party (food trucks, games, vendors), followed by a concert featuring LL Cool J and Jazmine Sullivan, then fireworks at approximately 9:30pm.',
+    tips:['Gates open at 4pm at Logan Circle (20th St & the Parkway) — arrive early for the best spot','Eakins Oval near the Art Museum steps is one of the prime viewing areas','Security includes bag checks and magnetometers — travel light','Text "AMERICA" to 888-777 for live City alerts on any weather-related changes','Rideshare pickup after fireworks will be very busy — plan to walk back to the hotel or have a strategy'],
+    hours:'Gates 4pm · Concert 7pm · Fireworks ~9:30pm · July 4 only',
+    dist:'~1 mi from hotel (walkable)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Logan+Circle+Philadelphia+Benjamin+Franklin+Parkway'
+  },
+  {
+    id:'riverfw', cat:'j4', name:'Fireworks from the Waterfront', badge:'b-j4', bl:'July 4 — Free viewing',
+    meta:'July 4 · ~9:30pm · Penn\'s Landing / Race Street Pier',
+    desc:'If the Parkway crowds aren\'t your style, the Delaware River waterfront offers excellent alternative viewing for the July 4th fireworks. Race Street Pier under the Benjamin Franklin Bridge is a local favourite — open, less packed, and beautiful. The Ben Franklin Bridge pedestrian walkway gives an elevated view 135 feet above the river. Or cross to the Camden waterfront by ferry and watch both cities\' fireworks simultaneously.',
+    tips:['Race Street Pier is far less crowded than the Parkway and a stunning setting','The Ben Franklin Bridge pedestrian walkway is 135 feet above the river — a truly unique vantage point','Camden waterfront (ferry-accessible) lets you see fireworks from both Philadelphia and Camden at once','No tickets required for any of these spots'],
+    hours:'Fireworks ~9:30pm · July 4 only',
+    dist:'~2 mi from hotel (Penn\'s Landing area)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Race+Street+Pier+Philadelphia'
+  },
+  {
+    id:'pops', cat:'j4', name:'Pops on Independence (July 3)', badge:'b-j4', bl:'July 3 — Free',
+    meta:'July 3 · 7pm · Independence National Historical Park',
+    desc:'The Philly Pops orchestra performs live at Independence National Historical Park the evening you arrive — part of the Wawa Welcome America Independence Concert Series. The 2025 show features newly appointed Music Director Chris Dragon and a special performance by singer-songwriter Ben Folds. Free, outdoors, with Independence Hall as the backdrop. A beautiful way to spend an arrival evening.',
+    tips:['Free event — no tickets required','Bring a blanket or a light jacket for the evening air','The outdoor setting at Independence Mall after dark is genuinely lovely','A great low-key introduction to the city after arriving and settling in'],
+    hours:'7pm · July 3 only',
+    dist:'~1.5 mi from hotel (Independence Mall)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Independence+National+Historical+Park+Philadelphia'
+  },
+  {
+    id:'liberty', cat:'hist', name:'Liberty Bell Center', badge:'b-free', bl:'Free entry',
+    meta:'9am–5pm daily · No tickets needed',
+    desc:'One of the most iconic symbols in American history — and genuinely moving to stand next to in person. The exhibits trace the bell\'s history from colonial Philadelphia through the civil rights movement. Free entry with no tickets required, but security screening on entry.',
+    tips:['Go right at opening (9am) — July 4th lines get long very quickly','No restrooms inside — plan ahead','The view of Independence Hall through the back window is worth pausing for','Security is a light check — keep your bag small and simple'],
+    hours:'9am – 5pm daily',
+    dist:'~1.5 mi from hotel (Old City)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Liberty+Bell+Center+Philadelphia'
+  },
+  {
+    id:'indyhall', cat:'hist', name:'Independence Hall', badge:'b-free', bl:'Free entry',
+    meta:'9am–5pm daily · Ranger-led tours ~45 min',
+    desc:'Where the Declaration of Independence and the US Constitution were signed. On July 4th weekend the National Park Service rangers bring the history to life brilliantly. Tours run about 45 minutes. Being here on actual July 4th — as a visitor from the UK — is a genuinely once-in-a-lifetime experience.',
+    tips:['Free timed entry tickets at the visitor center or via recreation.gov','Extended tours go to the second floor — recommended','Travel light — security screening on entry','The Celebration of Freedom ceremony with a public reading of the Declaration happens on July 4th morning'],
+    hours:'9am – 5pm daily',
+    dist:'~1.5 mi from hotel (Old City)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Independence+Hall+Philadelphia'
+  },
+  {
+    id:'moar', cat:'hist', name:'Museum of the American Revolution', badge:'b-paid', bl:'Paid entry',
+    meta:'10am–5pm daily · Plan 2–3 hours',
+    desc:'One of the best history museums in the country. As a UK visitor, the British perspective is genuinely well-represented here — this is not a simple one-sided narrative. Washington\'s War Tent is the centrepiece exhibit and a remarkable theatrical moment. Located right in Old City, easy to pair with Independence Hall and the Liberty Bell.',
+    tips:['Book tickets online in advance — especially for July 4th weekend','The War Tent reveal is a theatrical moment — don\'t read about it beforehand','There\'s a good cafe inside for a midday break','Allow 2–3 hours — it\'s more comprehensive than most history museums'],
+    hours:'10am – 5pm daily',
+    dist:'~1.7 mi from hotel (Old City)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Museum+of+the+American+Revolution+Philadelphia'
+  },
+  {
+    id:'esp', cat:'hist', name:'Eastern State Penitentiary', badge:'b-paid', bl:'Paid entry',
+    meta:'10am–5pm daily · Self-guided audio tour',
+    desc:'Opened in 1829 and once the most famous prison in the world — Al Capone did time here. The self-guided audio tour is exceptional. A powerful counterpoint to July 4th celebrations: the site actively engages with the complex relationship between American freedom and mass incarceration. Unlike anything in the UK despite being a roughly contemporary institution.',
+    tips:['Buy tickets online — $17 online vs $20 at the door','Wear headphones — the audio narration is genuinely gripping','Allow 2 hours minimum','Capone\'s cell is one of the highlights'],
+    hours:'10am – 5pm daily',
+    dist:'~1.5 mi north of hotel (short rideshare)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Eastern+State+Penitentiary+Philadelphia'
+  },
+  {
+    id:'italianmkt', cat:'hist', name:'Italian Market — 9th Street', badge:'b-free', bl:'Free to wander',
+    meta:'Tue–Sun · Best Saturday mornings',
+    desc:'America\'s oldest outdoor market — still run by multigenerational vendor families. Far more cosmopolitan than the name suggests: Turkish, Persian, and Greek stalls sit alongside the Italian classics. A genuinely alive neighbourhood experience with food everywhere you look.',
+    tips:['Closed Mondays','Saturday mornings have the best energy and fullest vendor turnout','Isgro Pastries is legendary — the cannoli are worth a stop','Great for picking up picnic supplies before a Parkway afternoon'],
+    hours:'Tue–Sun, 10am–5pm (varies by vendor)',
+    dist:'~1.5 mi south of hotel',
+    gm:'https://www.google.com/maps/search/?api=1&query=Italian+Market+Philadelphia+9th+Street'
+  },
+  {
+    id:'pma', cat:'art', name:'Philadelphia Museum of Art', badge:'b-paid', bl:'Paid entry',
+    meta:'Mon/Thu–Sun 10am–5pm · Closed Tue & Wed',
+    desc:'World-class collection in a spectacular neoclassical building at the top of the Benjamin Franklin Parkway. The Rocky steps out front are obligatory. Inside: European masters, armour, Asian art, modern work — genuinely enormous and beautifully laid out. Closed Tuesdays and Wednesdays so plan this for the weekend.',
+    tips:['Walk (or run) the Rocky steps — it\'s required','Friday hours extend to 8:45pm for a late visit','The rear terrace has a beautiful panoramic view of the Parkway','Do this on the same day as the Barnes — both are on the Parkway, walkable from each other'],
+    hours:'Mon/Thu–Sun 10am–5pm · Fri until 8:45pm · Closed Tue/Wed',
+    dist:'~1.2 mi northwest of hotel',
+    gm:'https://www.google.com/maps/search/?api=1&query=Philadelphia+Museum+of+Art'
+  },
+  {
+    id:'barnes', cat:'art', name:'Barnes Foundation', badge:'b-paid', bl:'Paid entry',
+    meta:'Mon/Thu–Sun 11am–5pm · Closed Tue & Wed',
+    desc:'One of the most extraordinary private art collections ever assembled. Renoir, Cézanne, Matisse, Picasso — displayed in an intentionally domestic arrangement unlike any conventional museum. The Barnes is a short walk down the Parkway from the PMA. Do both on the same day.',
+    tips:['Book tickets in advance — it sells out','Closed Tuesdays and Wednesdays (same days as PMA — plan accordingly)','No backpacks inside — use the coat check','Slow down and notice how the paintings are grouped — the arrangement is the whole experience'],
+    hours:'Mon/Thu–Sun 11am–5pm · Closed Tue/Wed',
+    dist:'~1 mi northwest of hotel',
+    gm:'https://www.google.com/maps/search/?api=1&query=Barnes+Foundation+Philadelphia'
+  },
+  {
+    id:'fishtown', cat:'art', name:'Fishtown neighbourhood', badge:'b-free', bl:'Free to explore',
+    meta:'Best evenings · ~15 min by rideshare',
+    desc:'Philadelphia\'s creative hub — murals, independent restaurants, coffee shops, record shops, and an energy that feels genuinely alive. A completely different side of Philly from the historic district. Best explored as an evening wander, possibly with dinner somewhere in the neighbourhood.',
+    tips:['Rideshare from the hotel is about 15 minutes and very reasonable','The neighbourhood is compact and walkable once you arrive','Look up at the building murals — they\'re part of what makes Fishtown Fishtown','A great evening option any night of the trip'],
+    hours:'Always open — best Friday and Saturday evenings',
+    dist:'~3 mi northeast of hotel (rideshare recommended)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Fishtown+Philadelphia'
+  },
+  {
+    id:'rtm', cat:'food', name:'Reading Terminal Market', badge:'b-paid', bl:'Pay per vendor',
+    meta:'8am–6pm daily · Go early on weekends',
+    desc:'A legendary indoor market feeding Philadelphia since 1893. Dozens of vendors under one roof — Amish baked goods, fresh seafood, global food stalls, and some of the best produce in the city. Very pescatarian-friendly. An ideal morning stop any day of the trip.',
+    tips:['Go before 10am on weekends to beat the crowds','Excellent seafood options — the oyster bar is worth a visit','Amish vendors are weekday-only — worth noting','Miller\'s Twist pretzels are a Philadelphia institution — you\'ll smell them before you see them'],
+    hours:'8am – 6pm daily',
+    dist:'~0.8 mi from hotel (walkable)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Reading+Terminal+Market+Philadelphia'
+  },
+  {
+    id:'kanella', cat:'food', name:'Kanella', badge:'b-paid', bl:'Moderate price',
+    meta:'11am–10pm daily · Usually no reservation needed',
+    desc:'Greek and Eastern Mediterranean cuisine in a warm, neighbourhood setting. Outstanding hummus, an excellent seabass, and a menu that works very well for pescatarians. One of the more reliable dinner options in the city — casual enough to walk in without a reservation most nights.',
+    tips:['Open 7 days — a dependable option any evening','The seabass is the standout dish','Small plates (mezes) are a great way to graze across the menu','About a 10-minute walk from the hotel'],
+    hours:'11am – 10pm daily',
+    dist:'~0.5 mi from hotel (walkable)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Kanella+Philadelphia'
+  },
+  {
+    id:'vedge', cat:'food', name:'Vedge', badge:'b-paid', bl:'Moderate price',
+    meta:'Tue–Sat 5–9pm · Book ahead',
+    desc:'One of the best vegetable-forward restaurants in the country — and very pescatarian-friendly. Don\'t let "vegan" put you off. This is serious, technically accomplished food in a beautiful space a short walk from the hotel. Worth booking ahead, especially over July 4th weekend.',
+    tips:['Book in advance — it fills up quickly','Closed Mondays and Sundays','The tasting menu is great for two people sharing','A 5-minute walk from the hotel — very convenient'],
+    hours:'Tue–Sat 5–9pm',
+    dist:'~0.4 mi from hotel (walkable)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Vedge+Restaurant+Philadelphia'
+  },
+  {
+    id:'zahav', cat:'food', name:'Zahav', badge:'b-paid', bl:'Moderate price',
+    meta:'Tue–Sat 5–9:30pm · Book well in advance',
+    desc:'One of the most acclaimed restaurants in Philadelphia — modern Israeli cuisine that is deeply pescatarian-friendly. The hummus is extraordinary, the laffa bread from the taboon oven is unforgettable, and the salatim (small salads) at the start are worth the visit alone. Located in Old City — easy to pair with a day of historic sightseeing.',
+    tips:['Book several days ahead — always full, especially July 4th weekend','Closed Mondays and Sundays','Communal and sharing-friendly — great for two people','The crudo and the hummus are consistent highlights'],
+    hours:'Tue–Sat 5–9:30pm',
+    dist:'~1.7 mi from hotel (Old City)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Zahav+Philadelphia'
+  },
+  {
+    id:'southst', cat:'food', name:'South Street', badge:'b-free', bl:'Free to explore',
+    meta:'Best evenings · ~20 min walk or short rideshare',
+    desc:'Philadelphia\'s most eclectic strip — independent restaurants, quirky shops, street art tucked into alleys, and a lively atmosphere. Good for dinner followed by a wander. The South Street Night Market runs over July 4th weekend with open streets and pop-up vendors on multiple blocks.',
+    tips:['Best in the evening from around 6pm onwards','The Night Market runs July 4th weekend — open streets and pop-up vendors on multiple blocks','Philadelphia\'s Magic Gardens mosaic art installation is just nearby — worth adding to the stop','About a 20-minute walk south from the hotel'],
+    hours:'Shops and restaurants open evenings',
+    dist:'~0.8 mi south of hotel',
+    gm:'https://www.google.com/maps/search/?api=1&query=South+Street+Philadelphia'
+  },
+  {
+    id:'shane', cat:'sweet', name:'Shane Confectionery', badge:'b-paid', bl:'Moderate price',
+    meta:'Mon–Thu 12–8pm · Fri–Sat 11am–9pm · Sun 11am–8pm',
+    desc:'America\'s oldest continuously operating candy store — founded in 1863, on historic Market Street in Old City. The drinking chocolate is thick, rich, and European in style. Hand-crafted bonbons, old-fashioned penny candies, and a beautifully preserved Victorian interior. A UK visitor will find this feels oddly familiar and completely charming.',
+    tips:['The dark drinking chocolate with a house-made marshmallow is the signature order','Try the passion fruit bonbon and the praline milk chocolate','Right next door to Franklin Fountain — do both in one stop','The Victorian shop interior is worth seeing on its own'],
+    hours:'Mon–Thu 12–8pm · Fri–Sat 11am–9pm · Sun 11am–8pm',
+    dist:'~1.7 mi from hotel (Old City)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Shane+Confectionery+110+Market+St+Philadelphia'
+  },
+  {
+    id:'franklin', cat:'sweet', name:'Franklin Fountain', badge:'b-paid', bl:'Moderate price',
+    meta:'11am–midnight daily · Old City',
+    desc:'A lovingly restored 1900s-era ice cream parlour on historic Market Street — right next door to Shane Confectionery. Old-fashioned sundaes, egg creams, and house-made sodas served by staff in bow ties. Order at the counter and enjoy it outside on the street.',
+    tips:['Right next door to Shane Confectionery — do both in one trip','The waffle cone is genuinely excellent','Lines can be long on weekends — try an off-peak hour','No indoor seating — take it outside and enjoy Market Street'],
+    hours:'11am – midnight daily',
+    dist:'~1.7 mi from hotel (Old City)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Franklin+Fountain+116+Market+St+Philadelphia'
+  },
+  {
+    id:'seaphilly', cat:'boat', name:'Sea Philly — Delaware River Cruise', badge:'b-paid', bl:'Paid · Book ahead',
+    meta:'Penn\'s Landing · Seasonal — check seaphilly.com',
+    desc:'A classic 1961 Chris-Craft wooden boat cruise on the Delaware River with views of the Philadelphia skyline, the Benjamin Franklin Bridge, and the historic waterfront. Captain Chris is known as an exceptional storyteller who brings the waterfront\'s history alive. Small, intimate, and beautiful — particularly memorable on July 4th weekend with the city dressed up for the holiday.',
+    tips:['Book ahead — the boats are small and fill up quickly','Ask specifically about the evening cruise for golden-hour skyline views','The dock is at Penn\'s Landing — also home to RiverRink Summerfest, worth exploring while you\'re there','A rideshare from the hotel to Penn\'s Landing takes about 10 minutes'],
+    hours:'Seasonal — check seaphilly.com for July 4th weekend availability',
+    dist:'~2 mi from hotel (Penn\'s Landing)',
+    gm:'https://www.google.com/maps/search/?api=1&query=Sea+Philly+215+S+Christopher+Columbus+Blvd+Philadelphia'
+  }
+];
+
+let tab = 'all', open = null;
+
+function go(cat, btn) {
+  tab = cat; open = null;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('dp').classList.remove('show');
+  render();
+}
+
+function render() {
+  const f = tab === 'all' ? P : P.filter(p => p.cat === tab);
+  document.getElementById('cg').innerHTML = f.map(p => `
+    <div class="card${open === p.id ? ' on' : ''}" onclick="tog('${p.id}')">
+      <div class="card-top">
+        <div class="card-name">${p.name}</div>
+        <span class="badge ${p.badge}">${p.bl}</span>
+      </div>
+      <div class="card-meta">${p.meta}</div>
+    </div>`).join('');
+}
+
+function tog(id) {
+  const panel = document.getElementById('dp');
+  if (open === id) { open = null; panel.classList.remove('show'); render(); return; }
+  open = id; render();
+  const p = P.find(x => x.id === id);
+  panel.innerHTML = `
+    <div class="detail-top">
+      <div class="detail-name">${p.name}</div>
+      <button class="close-btn" onclick="cls()">✕ close</button>
+    </div>
+    <div class="detail-meta">${p.dist} &nbsp;·&nbsp; ${p.hours}</div>
+    <div class="detail-desc">${p.desc}</div>
+    <div class="tips-block">
+      <div class="tips-label">Tips</div>
+      <ul>${p.tips.map(t => `<li>${t}</li>`).join('')}</ul>
+    </div>
+    <a href="${p.gm}" class="map-link" target="_blank">↗ Open in Google Maps</a>`;
+  panel.classList.add('show');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function cls() { open = null; document.getElementById('dp').classList.remove('show'); render(); }
+
+render();
+</script>
+</body>
+</html>
